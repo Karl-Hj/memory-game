@@ -1,0 +1,30 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+}
+
+.boardgame {
+  display: flex;
+
+  height: 500px;
+  width: 500px;
+  flex-wrap: wrap;
+
+  border: solid 1px black;
+}
+
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  box-sizing: border-box;
+  border: solid 2px black;
+}
