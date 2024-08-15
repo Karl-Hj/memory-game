@@ -1,3 +1,3 @@
 # memory-game
 
-A small fun game project
+A small fun game project in react
