@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 
-export function Cell({ cell, id, setCells, cells, numbers, setPoints }) {
-  const [isActive, setIsActive] = useState(false);
-
+export function Cell({
+  cell,
+  id,
+  setCells,
+  cells,
+  numbers,
+  setPoints,
+  isActive,
+  setIsActive,
+}) {
   function tieNumbersToId() {
     const updateCells = cells.map((cell, index) => {
       if (numbers.includes(index)) {

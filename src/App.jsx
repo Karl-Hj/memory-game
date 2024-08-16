@@ -1,25 +1,24 @@
 import { useState, useEffect } from "react";
 import { Cell } from "./components/Cell";
 
+const clearArray = Array(25).fill("");
+
 function App() {
   const [numbers, setNumbers] = useState([]);
   const [count, setCount] = useState(2);
   const [points, setPoints] = useState(0);
+  const [cells, setCells] = useState(clearArray);
+  const [isActive, setIsActive] = useState(false);
 
-  const [cells, setCells] = useState(Array(25).fill(""));
-
-  // useEffect(() => {
-
-  //   console.log(count);
-  // }, [count]);
+  //TODO Reset IsActive
 
   useEffect(() => {
     if (points === count) {
       console.log("You won");
+      generateRandomNumbers();
       if (count < 25) {
         setPoints(0);
         setCount((currentCount) => currentCount + 2);
-        generateRandomNumbers();
       }
     }
     console.log("nuvarande poäng :" + points);
@@ -27,6 +26,7 @@ function App() {
 
   function generateRandomNumbers() {
     const randomNumbers = [];
+
     while (randomNumbers.length < count) {
       const randomNumber = Math.floor(Math.random() * 25);
       if (!randomNumbers.includes(randomNumber)) {
@@ -51,7 +51,8 @@ function App() {
               count={count}
               points={points}
               setPoints={setPoints}
-              // winning={winning}
+              isActive={false}
+              setIsActive={setIsActive}
             />
           );
         })}
