@@ -1,8 +1,5 @@
-# React + Vite
+# memory-game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small fun game project in react
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> > > > > > > 89a3c33738b21355a07c5f02b1b9b7b547768265
