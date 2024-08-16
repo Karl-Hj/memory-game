@@ -35,5 +35,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.correct {
   background: url("./pictures/minipanda.png");
 }

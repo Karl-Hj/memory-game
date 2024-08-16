@@ -12,15 +12,13 @@ export function Cell({ cell, id, setCells, cells, numbers, setNumbers }) {
     setCells(updateCells);
   }
 
-  //Display the picture if id is true display red if false.
-
   function handleClick() {
     tieNumbersToId();
   }
 
   return (
     <div className="square" id={id} onClick={handleClick}>
-      <div className="cell">{cell}</div>
+      <div className={`cells ${!cell ? "" : "correct"} `}>{cell}</div>
     </div>
   );
 }
