@@ -4,34 +4,26 @@ import { Cell } from "./components/Cell";
 function App() {
   const [numbers, setNumbers] = useState([]);
   const [count, setCount] = useState(2);
+  const [points, setPoints] = useState(0);
 
-  const [cells, setCells] = useState([
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ]);
+  const [cells, setCells] = useState(Array(25).fill(""));
+
+  // useEffect(() => {
+
+  //   console.log(count);
+  // }, [count]);
+
+  useEffect(() => {
+    if (points === count) {
+      console.log("You won");
+      if (count < 25) {
+        setPoints(0);
+        setCount((currentCount) => currentCount + 2);
+        generateRandomNumbers();
+      }
+    }
+    console.log("nuvarande poäng :" + points);
+  }, [points, count]);
 
   function generateRandomNumbers() {
     const randomNumbers = [];
@@ -44,12 +36,6 @@ function App() {
     setNumbers(randomNumbers);
   }
 
-  useEffect(() => {
-    generateRandomNumbers();
-  }, [count]);
-
-  //Tie cell to id value which is set to true.
-  //Display the picture if id is true display red if false.
   return (
     <div className="app">
       <div className="boardgame">
@@ -62,7 +48,10 @@ function App() {
               setCells={setCells}
               cells={cells}
               numbers={numbers}
-              setNumbers={setNumbers}
+              count={count}
+              points={points}
+              setPoints={setPoints}
+              // winning={winning}
             />
           );
         })}

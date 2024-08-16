@@ -37,6 +37,10 @@
   align-items: center;
 }
 
+.active {
+  background: url("./pictures/minipanda.png");
+}
+
 .correct {
   background: url("./pictures/minipanda.png");
 }
