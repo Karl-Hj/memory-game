@@ -33,7 +33,7 @@ function App() {
     <div className="app">
       <div className="boardgame">
         {cells.map((cell, index) => {
-          return <Cell key={index} cell={cell} index={index} />;
+          return <Cell key={index} cell={cell} id={index} />;
         })}
       </div>
     </div>
