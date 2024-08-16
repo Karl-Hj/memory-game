@@ -12,13 +12,23 @@ export function Cell({ cell, id, setCells, cells, numbers, setNumbers }) {
     setCells(updateCells);
   }
 
-  function handleClick() {
+  useEffect(() => {
     tieNumbersToId();
+  }, [numbers]);
+
+  function handleClick() {
+    if (cell === true) {
+      console.log("yes");
+    } else {
+      console.log("no");
+    }
   }
 
   return (
-    <div className="square" id={id} onClick={handleClick}>
-      <div className={`cells ${!cell ? "" : "correct"} `}>{cell}</div>
+    <div className="square" id={id}>
+      <div className={`cells ${!cell ? "" : "correct"} `} onClick={handleClick}>
+        {cell}
+      </div>
     </div>
   );
 }
