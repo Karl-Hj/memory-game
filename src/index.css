@@ -29,7 +29,7 @@
   border: solid 2px black;
 }
 
-.cell {
+.cells {
   height: 100px;
   width: 100px;
   display: flex;

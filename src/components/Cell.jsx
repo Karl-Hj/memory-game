@@ -1,15 +1,26 @@
-export function Cell({ cell, id }) {
-  //Random function to select two id and then incress if right.
-  //Tie cell to id value which is set to true.
+import { useEffect, useState } from "react";
+
+export function Cell({ cell, id, setCells, cells, numbers, setNumbers }) {
+  function tieNumbersToId() {
+    const updateCells = cells.map((cell, index) => {
+      if (numbers.includes(index)) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    setCells(updateCells);
+  }
+
   //Display the picture if id is true display red if false.
 
   function handleClick() {
-    console.log(id);
+    tieNumbersToId();
   }
 
   return (
     <div className="square" id={id} onClick={handleClick}>
-      <div>{cell}</div>
+      <div className="cell">{cell}</div>
     </div>
   );
 }
