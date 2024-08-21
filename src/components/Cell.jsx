@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function Cell({
   cell,
@@ -9,6 +9,7 @@ export function Cell({
   setPoints,
   isActive,
   setIsActive,
+  setWinningCondition,
 }) {
   //Tie random numbers to cells
   function tieNumbersToId() {
@@ -31,6 +32,9 @@ export function Cell({
     if (cell === true) {
       setIsActive(true);
       CellCheck(e);
+    } else {
+      setIsActive(false);
+      setWinningCondition(false);
     }
   }
 
@@ -41,8 +45,6 @@ export function Cell({
         setPoints((prevPoints) => prevPoints + 1);
         e.target.classList.add("active");
       }
-    } else {
-      // console.log("Cell is not active");
     }
   }
 

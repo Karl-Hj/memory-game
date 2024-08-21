@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Cell } from "./components/Cell";
+import { GameOver } from "./components/GameOver";
 
 const clearArray = Array(25).fill("");
 
@@ -9,6 +10,7 @@ function App() {
   const [points, setPoints] = useState(0);
   const [cells, setCells] = useState(clearArray);
   const [isActive, setIsActive] = useState(false);
+  const [winningConditon, setWinningCondition] = useState(undefined);
 
   //Reset points and check for winning condition
   useEffect(() => {
@@ -20,7 +22,7 @@ function App() {
       }
     }
     if (points === 24) {
-      alert("You won");
+      setWinningCondition(true);
     }
   }, [points, count]);
 
@@ -40,7 +42,7 @@ function App() {
     }
     setNumbers(randomNumbers);
   }
-
+  // console.log("winningCondition is :" + winningConditon);
   return (
     <div className="app">
       <div className="boardgame">
@@ -58,11 +60,21 @@ function App() {
               setPoints={setPoints}
               isActive={false}
               setIsActive={setIsActive}
+              setWinningCondition={setWinningCondition}
             />
           );
         })}
       </div>
-      <button className="start-button">Start</button>
+      {winningConditon !== undefined && (
+        <GameOver
+          winningConditon={winningConditon}
+          setWinningCondition={setWinningCondition}
+          setCells={setCells}
+          setCount={setCount}
+          setPoints={setPoints}
+          clearArray={clearArray}
+        />
+      )}
     </div>
   );
 }
