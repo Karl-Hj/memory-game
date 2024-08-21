@@ -10,19 +10,24 @@ function App() {
   const [cells, setCells] = useState(clearArray);
   const [isActive, setIsActive] = useState(false);
 
-  //TODO Reset IsActive
-
+  //Reset points and check for winning condition
   useEffect(() => {
     if (points === count) {
-      console.log("You won");
-      generateRandomNumbers();
-      if (count < 25) {
-        setPoints(0);
+      if (count < 23) {
         setCount((currentCount) => currentCount + 2);
+        setCells(clearArray);
+        setPoints(0);
       }
     }
-    console.log("nuvarande poäng :" + points);
+    if (points === 24) {
+      alert("You won");
+    }
   }, [points, count]);
+
+  // Generate random numbers
+  useEffect(() => {
+    generateRandomNumbers();
+  }, [count]);
 
   function generateRandomNumbers() {
     const randomNumbers = [];
@@ -57,9 +62,7 @@ function App() {
           );
         })}
       </div>
-      <button className="start-button" onClick={generateRandomNumbers}>
-        Start
-      </button>
+      <button className="start-button">Start</button>
     </div>
   );
 }

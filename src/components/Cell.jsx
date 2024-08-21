@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export function Cell({
   cell,
@@ -10,6 +10,7 @@ export function Cell({
   isActive,
   setIsActive,
 }) {
+  //Tie random numbers to cells
   function tieNumbersToId() {
     const updateCells = cells.map((cell, index) => {
       if (numbers.includes(index)) {
@@ -25,14 +26,15 @@ export function Cell({
     tieNumbersToId();
   }, [numbers]);
 
+  //Check if cell is correct and check if cell is correct or not.
   function handleClick(e) {
     if (cell === true) {
       setIsActive(true);
-      score(e);
+      CellCheck(e);
     }
   }
 
-  function score(e) {
+  function CellCheck(e) {
     if (e.target.classList.contains("correct")) {
       console.log("Clicked element classes:", e.target.classList);
       if (!e.target.classList.contains("active")) {
