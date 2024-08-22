@@ -38,10 +38,9 @@
 .correct {
   height: 96px;
   width: 100px;
-  background: url("./pictures/happy-panda2.png");
-  /* animation-name: turn-around-away;
+  /* background: url("./pictures/happy-panda2.png"); */
+  animation-name: turn-around-away;
   animation-duration: 8s;
-  animation-iteration-count: 1; */
 }
 .active {
   height: 96px;
@@ -96,8 +95,9 @@
   margin-top: 2px;
 }
 
-/* @keyframes turn-around-away {
+@keyframes turn-around-away {
   0% {
+    pointer-events: none;
     background: url("./pictures/happy-panda2.png");
     transform: rotateY(0);
   }
@@ -110,4 +110,4 @@
     background: white;
     transform: rotateY(0.5turn);
   }
-} */
+}

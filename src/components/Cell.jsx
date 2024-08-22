@@ -1,8 +1,14 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export function Cell({ cell, id, setPoints, setWinningCondition }) {
   const cellRef = useRef(null);
 
+  //Adds class correct, if cell is true
+  useEffect(() => {
+    if (cell) {
+      cellRef.current.classList.add("correct");
+    }
+  }, [cell]);
   //Check if cell have class correct or not.
   function handleClick() {
     if (cell) {
@@ -22,13 +28,7 @@ export function Cell({ cell, id, setPoints, setWinningCondition }) {
 
   return (
     <div className="square" id={id}>
-      <div
-        className={`cells ${!cell ? "" : "correct"} `}
-        onClick={handleClick}
-        ref={cellRef}
-      >
-        {cell}
-      </div>
+      <div className={"cells cell"} onClick={handleClick} ref={cellRef}></div>
     </div>
   );
 }
