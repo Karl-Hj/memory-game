@@ -9,7 +9,6 @@ function App() {
   const [count, setCount] = useState(2);
   const [points, setPoints] = useState(0);
   const [cells, setCells] = useState(clearArray);
-  const [isActive, setIsActive] = useState(false);
   const [winningConditon, setWinningCondition] = useState(undefined);
 
   //Reset points and check for winning condition
@@ -24,7 +23,7 @@ function App() {
     if (points === 24) {
       setWinningCondition(true);
     }
-  }, [points, count]);
+  }, [points]);
 
   // Generate random numbers
   useEffect(() => {
@@ -41,7 +40,18 @@ function App() {
       }
     }
     setNumbers(randomNumbers);
+    // console.log("Count is : " + count);
   }
+  useEffect(() => {
+    const updateCells = cells.map((_, index) => {
+      if (numbers.includes(index)) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    setCells(updateCells);
+  }, [numbers]);
   // console.log("winningCondition is :" + winningConditon);
   return (
     <div className="app">
@@ -52,14 +62,7 @@ function App() {
               key={index}
               cell={cell}
               id={index}
-              setCells={setCells}
-              cells={cells}
-              numbers={numbers}
-              count={count}
-              points={points}
               setPoints={setPoints}
-              isActive={false}
-              setIsActive={setIsActive}
               setWinningCondition={setWinningCondition}
             />
           );
