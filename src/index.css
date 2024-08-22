@@ -38,13 +38,34 @@
 .correct {
   height: 96px;
   width: 100px;
-  /* background: url("./pictures/happy-panda2.png"); */
+}
+
+.animation {
   animation-name: turn-around-away;
   animation-duration: 8s;
 }
+
+@keyframes turn-around-away {
+  0% {
+    pointer-events: none;
+    background: url("./pictures/happy-panda2.png");
+    transform: rotateY(0);
+  }
+  50% {
+    pointer-events: none;
+    background: url("./pictures/happy-panda2.png");
+    transform: rotateY(0turn);
+  }
+  100% {
+    background: white;
+    transform: rotateY(0.5turn);
+  }
+}
+
 .active {
   height: 96px;
   width: 100px;
+  background: url("./pictures/happy-panda2.png");
 }
 
 .game-over {
@@ -93,21 +114,4 @@
 .winner-text {
   font-size: 4rem;
   margin-top: 2px;
-}
-
-@keyframes turn-around-away {
-  0% {
-    pointer-events: none;
-    background: url("./pictures/happy-panda2.png");
-    transform: rotateY(0);
-  }
-  50% {
-    pointer-events: none;
-    background: url("./pictures/happy-panda2.png");
-    transform: rotateY(0turn);
-  }
-  100% {
-    background: white;
-    transform: rotateY(0.5turn);
-  }
 }

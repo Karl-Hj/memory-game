@@ -1,14 +1,18 @@
 import { useEffect, useRef } from "react";
 
-export function Cell({ cell, id, setPoints, setWinningCondition }) {
+export function Cell({ cell, id, setPoints, setWinningCondition, numbers }) {
   const cellRef = useRef(null);
 
-  //Adds class correct, if cell is true
+  //Adds class correct, if cell is true and force reflow
   useEffect(() => {
     if (cell) {
       cellRef.current.classList.add("correct");
+      void cellRef.current.offsetWidth;
+      cellRef.current.classList.add("animation");
     }
+    console.log("numbers :" + numbers.length);
   }, [cell]);
+
   //Check if cell have class correct or not.
   function handleClick() {
     if (cell) {
@@ -28,7 +32,11 @@ export function Cell({ cell, id, setPoints, setWinningCondition }) {
 
   return (
     <div className="square" id={id}>
-      <div className={"cells cell"} onClick={handleClick} ref={cellRef}></div>
+      <div
+        className={`cells ${cell}`}
+        onClick={handleClick}
+        ref={cellRef}
+      ></div>
     </div>
   );
 }

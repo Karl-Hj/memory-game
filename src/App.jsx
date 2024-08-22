@@ -60,6 +60,7 @@ function App() {
           return (
             <Cell
               key={index}
+              numbers={numbers}
               cell={cell}
               id={index}
               setPoints={setPoints}
