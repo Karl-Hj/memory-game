@@ -5,12 +5,14 @@ export function GameOver({
   setCount,
   setPoints,
   clearArray,
+  generateRandomNumbers,
 }) {
   function reset() {
     setCells(clearArray);
-    setCount(0);
+    setCount(2);
     setPoints(0);
     setWinningCondition(undefined);
+    generateRandomNumbers();
   }
   return (
     <div className={winningConditon ? "winner" : "game-over"}>

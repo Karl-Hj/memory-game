@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Cell } from "./components/Cell";
 import { GameOver } from "./components/GameOver";
-
+//TODO OPTIMAZERA .ACTIVE SAMT GAMEOVER
 const clearArray = Array(25).fill("");
 
 function App() {
@@ -52,7 +52,7 @@ function App() {
     });
     setCells(updateCells);
   }, [numbers]);
-  // console.log("winningCondition is :" + winningConditon);
+
   return (
     <div className="app">
       <div className="boardgame">
@@ -77,6 +77,7 @@ function App() {
           setCount={setCount}
           setPoints={setPoints}
           clearArray={clearArray}
+          generateRandomNumbers={generateRandomNumbers}
         />
       )}
     </div>
