@@ -16,7 +16,6 @@ export function Cell({ cell, id, setPoints, setWinningCondition }) {
         }
       }
     } else {
-      setIsActive(false);
       setWinningCondition(false);
     }
   }
