@@ -2,6 +2,43 @@
   margin: 0px;
   padding: 0px;
 }
+
+.start-container {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 450px;
+  height: 300px;
+  background-color: rgb(113, 174, 94);
+  z-index: 10;
+  border-radius: 10%;
+}
+
+.start-text {
+  position: absolute;
+  top: 80px;
+  padding: 5px;
+  font-size: 3rem;
+}
+
+.start-button {
+  height: 100px;
+  width: 200px;
+  position: absolute;
+  bottom: 20px;
+  font-size: 2rem;
+  border-radius: 10%;
+}
+
+.start-button:hover {
+  border: 0px;
+
+  background-color: green;
+  color: white;
+}
+
 .background-image {
   margin: 0px;
   padding: 0px;
@@ -186,7 +223,6 @@
     width: 300px;
     height: 300px;
   }
-
   .winner {
     width: 300px;
     height: 300px;
@@ -196,5 +232,14 @@
     margin-top: 2px;
     margin-right: 40px;
     padding-left: 20px;
+  }
+  .start-container {
+    width: 300px;
+    height: 300px;
+    border-radius: 0%;
+  }
+
+  .start-text {
+    font-size: 2rem;
   }
 }

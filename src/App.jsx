@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Cell } from "./components/Cell";
 import { GameOver } from "./components/GameOver";
 import background from "./pictures/background-zoo.png";
+import { StartText } from "./components/StartText";
 
 const clearArray = Array(25).fill("");
 
@@ -11,6 +12,7 @@ function App() {
   const [points, setPoints] = useState(0);
   const [cells, setCells] = useState(clearArray);
   const [winningConditon, setWinningCondition] = useState(undefined);
+  const [visible, setVisible] = useState(true);
 
   //Reset points and check for winning condition
   useEffect(() => {
@@ -43,19 +45,30 @@ function App() {
     setNumbers(randomNumbers);
   }
   useEffect(() => {
-    const updateCells = cells.map((_, index) => {
-      if (numbers.includes(index)) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-    setCells(updateCells);
+    if (!visible) {
+      const updateCells = cells.map((_, index) => {
+        if (numbers.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      setCells(updateCells);
+    } else {
+    }
   }, [numbers]);
 
   return (
     <div className="app">
+      <StartText
+        clearArray={clearArray}
+        setCells={setCells}
+        generateRandomNumbers={generateRandomNumbers}
+        visible={visible}
+        setVisible={setVisible}
+      />
       <img className="background-image" src={background} />
+
       <div className="boardgame">
         {cells.map((cell, index) => {
           return (
