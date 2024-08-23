@@ -12,7 +12,6 @@ export function Cell({ cell, id, setPoints, setWinningCondition }) {
     }
     const animation = setTimeout(() => {
       cellRef.current.classList.remove("animation");
-      console.log("removed");
     }, 3500);
 
     return () => clearTimeout(animation);
@@ -23,7 +22,6 @@ export function Cell({ cell, id, setPoints, setWinningCondition }) {
     if (cell) {
       if (cellRef.current) {
         if (cellRef.current.classList.contains("correct")) {
-          console.log("Clicked element classes:", cellRef.current.classList);
           if (!cellRef.current.classList.contains("active")) {
             cellRef.current.classList.add("active");
             setPoints((prevPoints) => prevPoints + 1);
