@@ -1,16 +1,21 @@
 import { useEffect, useRef } from "react";
 
-export function Cell({ cell, id, setPoints, setWinningCondition, numbers }) {
+export function Cell({ cell, id, setPoints, setWinningCondition }) {
   const cellRef = useRef(null);
 
-  //Adds class correct, if cell is true and force reflow
+  //Adds class correct, if cell is true and force reflow and remove animation class
   useEffect(() => {
     if (cell) {
       cellRef.current.classList.add("correct");
       void cellRef.current.offsetWidth;
       cellRef.current.classList.add("animation");
     }
-    console.log("numbers :" + numbers.length);
+    const animation = setTimeout(() => {
+      cellRef.current.classList.remove("animation");
+      console.log("removed");
+    }, 3500);
+
+    return () => clearTimeout(animation);
   }, [cell]);
 
   //Check if cell have class correct or not.

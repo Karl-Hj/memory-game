@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Cell } from "./components/Cell";
 import { GameOver } from "./components/GameOver";
-//TODO OPTIMAZERA .ACTIVE SAMT GAMEOVER
+import background from "./pictures/background-zoo.png";
+
 const clearArray = Array(25).fill("");
 
 function App() {
@@ -40,7 +41,6 @@ function App() {
       }
     }
     setNumbers(randomNumbers);
-    // console.log("Count is : " + count);
   }
   useEffect(() => {
     const updateCells = cells.map((_, index) => {
@@ -55,6 +55,7 @@ function App() {
 
   return (
     <div className="app">
+      <img className="background-image" src={background} />
       <div className="boardgame">
         {cells.map((cell, index) => {
           return (
@@ -69,6 +70,7 @@ function App() {
           );
         })}
       </div>
+
       {winningConditon !== undefined && (
         <GameOver
           winningConditon={winningConditon}
