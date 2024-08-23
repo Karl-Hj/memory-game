@@ -14,7 +14,7 @@ function App() {
   const [winningConditon, setWinningCondition] = useState(undefined);
   const [visible, setVisible] = useState(true);
 
-  //Reset points and check for winning condition
+  //Reset points and check for winning condition.
   useEffect(() => {
     if (points === count) {
       if (count < 23) {
